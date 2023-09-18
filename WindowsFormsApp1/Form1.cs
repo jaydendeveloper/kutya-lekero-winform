@@ -9,6 +9,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Newtonsoft.Json;
 
 namespace WindowsFormsApp1
 {
@@ -24,12 +25,27 @@ namespace WindowsFormsApp1
             { "ddd", "ass"};
 
 
+        class Dog
+        {
+            public string Name;
+            public int Age;
+            public string Color;
+
+            public Dog(string name, int age, string color)
+            {
+                Name = name;
+                Age = age;
+                Color = color;
+            }
+
+        }
+
         public void readDocData()
         {
             try
             {
                 dogs.Clear();
-                StreamReader doc = new StreamReader("./data.txt");
+                StreamReader doc = new StreamReader("./json.txt");
                 string line;
                 line = doc.ReadLine();
 
@@ -66,30 +82,32 @@ namespace WindowsFormsApp1
         private void button2_Click(object sender, EventArgs e)
         {
             label1.Text = "";
-            string text = textBox1.Text;
-            string[] newDogs = text.Split(',');
+            string name = textBox_name.Text.Trim();
+            int age = Convert.ToInt32(textBox_age.Text.Trim());
+            string color = textBox_color.Text.Trim();
 
             readDocData();
 
-            foreach (string dog in newDogs)
-            {
-                if (!dogs.Contains(dog))
-                {
-                    StreamWriter doc = new StreamWriter("./data.txt", append: true);
-                    doc.WriteLine("\"" + dog.Trim() + "\",");
+                //if (!dogs.Contains(dog))
+                //{
+
+                    Dog kutya = new Dog(name, age, color);
+
+                    StreamWriter doc = new StreamWriter("./data.json", append: true);
+                    
+                    doc.WriteLine(JsonConvert.SerializeObject(kutya, Formatting.Indented) + ",");
                     doc.Close();
-                } else
-                {
+                //} else
+                //{
 
-                    label1.Text = "Ez a kutya (" + dog.Trim() + ") már létezik a listában";
+                    //label1.Text = "Ez a kutya (" + dog.Trim() + ") már létezik a listában";
 
-                    Task.Delay(3000).ContinueWith(t =>
-                    {
-                        label1.Text = "";
-                    });
+                    //Task.Delay(3000).ContinueWith(t =>
+                    //{
+                    //    label1.Text = "";
+                    //});
 
-                }
-            }
+            //}
             readDocData();
 
             foreach (string dog in dogs)
@@ -117,7 +135,7 @@ namespace WindowsFormsApp1
                 } else
                 {
                     File.WriteAllText("./data.txt", string.Empty);
-                    StreamWriter doc = new StreamWriter("./data.txt", append: true);
+                    StreamWriter doc = new StreamWriter("./data.json", append: true);
                     dogs.Remove(dogForDelete.Trim());
 
                     foreach (string dog in dogs)
@@ -166,6 +184,16 @@ namespace WindowsFormsApp1
         }
 
         private void label3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
         {
 
         }

@@ -30,14 +30,18 @@
         {
             this.textBox = new System.Windows.Forms.TextBox();
             this.button1 = new System.Windows.Forms.Button();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBox_name = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.textBox_age = new System.Windows.Forms.TextBox();
+            this.label7 = new System.Windows.Forms.Label();
+            this.textBox_color = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // textBox
@@ -61,15 +65,15 @@
             this.button1.UseVisualStyleBackColor = false;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
-            // textBox1
+            // textBox_name
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Location = new System.Drawing.Point(297, 31);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(234, 167);
-            this.textBox1.TabIndex = 2;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
+            this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_name.Location = new System.Drawing.Point(297, 51);
+            this.textBox_name.Multiline = true;
+            this.textBox_name.Name = "textBox_name";
+            this.textBox_name.Size = new System.Drawing.Size(234, 24);
+            this.textBox_name.TabIndex = 2;
+            this.textBox_name.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
             // button2
             // 
@@ -136,15 +140,55 @@
             this.label3.Text = "Vesszővel elválasztva több kutya törölhető";
             this.label3.Click += new System.EventHandler(this.label3_Click);
             // 
-            // label4
+            // label5
             // 
-            this.label4.AutoSize = true;
-            this.label4.ForeColor = System.Drawing.Color.White;
-            this.label4.Location = new System.Drawing.Point(294, 241);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(228, 13);
-            this.label4.TabIndex = 9;
-            this.label4.Text = "Vesszővel elválasztva több kutya hozzáadható";
+            this.label5.AutoSize = true;
+            this.label5.ForeColor = System.Drawing.Color.White;
+            this.label5.Location = new System.Drawing.Point(297, 29);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(64, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Kutya neve:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.ForeColor = System.Drawing.Color.White;
+            this.label6.Location = new System.Drawing.Point(297, 87);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(61, 13);
+            this.label6.TabIndex = 12;
+            this.label6.Text = "Kutya kora:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // textBox_age
+            // 
+            this.textBox_age.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_age.Location = new System.Drawing.Point(297, 109);
+            this.textBox_age.Multiline = true;
+            this.textBox_age.Name = "textBox_age";
+            this.textBox_age.Size = new System.Drawing.Size(234, 24);
+            this.textBox_age.TabIndex = 11;
+            this.textBox_age.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.ForeColor = System.Drawing.Color.White;
+            this.label7.Location = new System.Drawing.Point(297, 141);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(66, 13);
+            this.label7.TabIndex = 14;
+            this.label7.Text = "Kutya színe:";
+            // 
+            // textBox_color
+            // 
+            this.textBox_color.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox_color.Location = new System.Drawing.Point(297, 163);
+            this.textBox_color.Multiline = true;
+            this.textBox_color.Name = "textBox_color";
+            this.textBox_color.Size = new System.Drawing.Size(234, 24);
+            this.textBox_color.TabIndex = 13;
             // 
             // Form1
             // 
@@ -152,14 +196,18 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.textBox_color);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.textBox_age);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.textBox_name);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox);
             this.Name = "Form1";
@@ -174,14 +222,18 @@
 
         private System.Windows.Forms.TextBox textBox;
         private System.Windows.Forms.Button button1;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBox_name;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.TextBox textBox_age;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox textBox_color;
     }
 }
 
