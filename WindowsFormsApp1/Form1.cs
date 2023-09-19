@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
 
 namespace WindowsFormsApp1
 {
@@ -22,7 +23,7 @@ namespace WindowsFormsApp1
         }
 
         List<string> dogs = new List<string>()
-            { "ddd", "ass"};
+            {};
 
 
         class Dog
@@ -45,7 +46,7 @@ namespace WindowsFormsApp1
             try
             {
                 dogs.Clear();
-                StreamReader doc = new StreamReader("./json.txt");
+                StreamReader doc = new StreamReader("./data.json");
                 string line;
                 line = doc.ReadLine();
 
@@ -63,12 +64,8 @@ namespace WindowsFormsApp1
 
             }
         }
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
 
-        }
-
-        private void button1_Click(object sender, EventArgs e)
+        public void resetDataBox()
         {
             textBox.Text = "";
             readDocData();
@@ -77,6 +74,15 @@ namespace WindowsFormsApp1
             {
                 textBox.Text += dog + " ";
             }
+        }
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            resetDataBox();
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -93,9 +99,20 @@ namespace WindowsFormsApp1
 
                     Dog kutya = new Dog(name, age, color);
 
+                    dogs.Add(kutya.ToString());
+
+                    JArray dogJsonItem = new JArray(dogs); //Convert newEvent to JArray.
+
+                    JObject jsonObject = JObject.Parse(File.ReadAllText("./data.json"));
+
+                    JArray jsonDogs = jsonObject["dogs"].Value<JArray>();
+
+                    dogJsonItem.Add(jsonObject); //Insert new JArray object.
+
                     StreamWriter doc = new StreamWriter("./data.json", append: true);
-                    
-                    doc.WriteLine(JsonConvert.SerializeObject(kutya, Formatting.Indented) + ",");
+
+                    doc.WriteLine(JsonConvert.SerializeObject(jsonDogs, Formatting.Indented));
+
                     doc.Close();
                 //} else
                 //{
@@ -108,12 +125,7 @@ namespace WindowsFormsApp1
                     //});
 
             //}
-            readDocData();
-
-            foreach (string dog in dogs)
-            {
-                textBox.Text += dog + " ";
-            }
+            resetDataBox();
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -149,13 +161,7 @@ namespace WindowsFormsApp1
             textBox2.Text = "";
 
 
-            textBox.Text = "";
-            readDocData();
-
-            foreach (string dog in dogs)
-            {
-                textBox.Text += dog + " ";
-            }
+            resetDataBox();
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
