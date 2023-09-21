@@ -14,9 +14,9 @@ using Newtonsoft.Json.Linq;
 
 namespace WindowsFormsApp1
 {
-    public partial class Form1 : Form
+    public partial class Kutyaszar : Form
     {
-        public Form1()
+        public Kutyaszar()
         {
             InitializeComponent();
 
@@ -46,13 +46,14 @@ namespace WindowsFormsApp1
             try
             {
                 dogs.Clear();
-                StreamReader doc = new StreamReader("./data.json");
+                StreamReader doc = new StreamReader("./data.txt");
                 string line;
                 line = doc.ReadLine();
 
                 while (line != null)
                 {
                     dogs.Add(line.Replace(",", "").Replace("\"", ""));
+
 
                     line = doc.ReadLine();
                 }
@@ -91,40 +92,42 @@ namespace WindowsFormsApp1
             string name = textBox_name.Text.Trim();
             int age = Convert.ToInt32(textBox_age.Text.Trim());
             string color = textBox_color.Text.Trim();
+            Dog dog = new Dog(name, age, color);
+            var dogJson = JsonConvert.SerializeObject(dog);
+
 
             readDocData();
 
-                //if (!dogs.Contains(dog))
-                //{
+            if (!dogs.Contains(dogJson))
+                {
 
-                    Dog kutya = new Dog(name, age, color);
 
-                    dogs.Add(kutya.ToString());
+                    dogs.Add(dogJson);
 
-                    JArray dogJsonItem = new JArray(dogs); //Convert newEvent to JArray.
+                //JArray dogJsonItem = new JArray(dogs); //Convert newEvent to JArray.
 
-                    JObject jsonObject = JObject.Parse(File.ReadAllText("./data.json"));
+                //JObject jsonObject = JObject.Parse(File.ReadAllText("./data.json"));
 
-                    JArray jsonDogs = jsonObject["dogs"].Value<JArray>();
+                //JArray jsonDogs = jsonObject["dogs"].Value<JArray>();
 
-                    dogJsonItem.Add(jsonObject); //Insert new JArray object.
+                //dogJsonItem.Add(jsonObject); //Insert new JArray object.
 
-                    StreamWriter doc = new StreamWriter("./data.json", append: true);
+                    StreamWriter doc = new StreamWriter("./data.txt", append: true);
 
-                    doc.WriteLine(JsonConvert.SerializeObject(jsonDogs, Formatting.Indented));
+
+                    doc.WriteLine(dogJson + ",");
 
                     doc.Close();
-                //} else
-                //{
+                } else
+                {
 
-                    //label1.Text = "Ez a kutya (" + dog.Trim() + ") már létezik a listában";
+                    label1.Text = "Ez a kutya (" + dog + ") már létezik a listában";
 
-                    //Task.Delay(3000).ContinueWith(t =>
-                    //{
-                    //    label1.Text = "";
-                    //});
-
-            //}
+                    Task.Delay(3000).ContinueWith(t =>
+                    {
+                        label1.Text = "";
+                    });
+            }
             resetDataBox();
         }
 
@@ -133,29 +136,31 @@ namespace WindowsFormsApp1
             string text = textBox2.Text;
             string[] deleteDogs = text.Split(',');
 
+            var file = File.Create("tempfile.txt");
+            file.Close();
+
             foreach (string dogForDelete in deleteDogs)
             {
-                if (!dogs.Contains(dogForDelete.Trim()))
+                StreamReader doc = new StreamReader("./data.txt");
+
+                string line;
+                line = doc.ReadLine();
+
+                while (line != null)
                 {
-                    label2.Text = "Nem létezik ilyen kutya (" + dogForDelete + ") a listában.";
-
-                    Task.Delay(3000).ContinueWith(t =>
+                    if (!line.Contains(dogForDelete.Trim()))
                     {
-                        label2.Text = "";
-                    });
+                        StreamWriter tempDoc = new StreamWriter("./tempfile.txt", append: true);
 
-                } else
-                {
-                    File.WriteAllText("./data.txt", string.Empty);
-                    StreamWriter doc = new StreamWriter("./data.json", append: true);
-                    dogs.Remove(dogForDelete.Trim());
-
-                    foreach (string dog in dogs)
-                    {
-                        doc.WriteLine(dog);
-                    };
-                    doc.Close();
+                        tempDoc.WriteLine(line);
+                        tempDoc.Close();
+                    } 
+                    dogs.Add(line);
                 }
+                doc.Close();
+                File.Delete("./data.txt");
+
+                System.IO.File.Move("tempfile.txt", "data.txt");
             }
 
             textBox2.Text = "";

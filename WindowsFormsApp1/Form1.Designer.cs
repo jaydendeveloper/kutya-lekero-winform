@@ -1,6 +1,6 @@
 ﻿namespace WindowsFormsApp1
 {
-    partial class Form1
+    partial class Kutyaszar
     {
         /// <summary>
         /// Required designer variable.
@@ -50,6 +50,7 @@
             this.textBox.Location = new System.Drawing.Point(21, 31);
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
+            this.textBox.ReadOnly = true;
             this.textBox.Size = new System.Drawing.Size(253, 167);
             this.textBox.TabIndex = 0;
             this.textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -99,6 +100,10 @@
             // 
             // textBox2
             // 
+            this.textBox2.AutoCompleteCustomSource.AddRange(new string[] {
+            "anyadxd",
+            "dog",
+            "xdddd"});
             this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBox2.Location = new System.Drawing.Point(554, 31);
             this.textBox2.Multiline = true;
@@ -190,11 +195,11 @@
             this.textBox_color.Size = new System.Drawing.Size(234, 24);
             this.textBox_color.TabIndex = 13;
             // 
-            // Form1
+            // Kutyaszar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(64)))), ((int)(((byte)(64)))), ((int)(((byte)(64)))));
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBox_color);
@@ -210,7 +215,8 @@
             this.Controls.Add(this.textBox_name);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox);
-            this.Name = "Form1";
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.Name = "Kutyaszar";
             this.Text = "Form1";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.ResumeLayout(false);
