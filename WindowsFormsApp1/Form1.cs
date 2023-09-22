@@ -52,7 +52,7 @@ namespace WindowsFormsApp1
 
                 while (line != null)
                 {
-                    dogs.Add(line.Replace(",", "").Replace("\"", ""));
+                    dogs.Add(line/*.Replace(",", "").Replace("\"", "")*/);
 
 
                     line = doc.ReadLine();
@@ -60,9 +60,8 @@ namespace WindowsFormsApp1
                 doc.Close();
             } catch (Exception ex)
             {
-
                 File.Create("data.txt").Close();
-
+                readLabel.Text = ex.Message + "\n Új fájl létrehozva!";
             }
         }
 
@@ -141,12 +140,10 @@ namespace WindowsFormsApp1
 
             foreach (string dogForDelete in deleteDogs)
             {
-                StreamReader doc = new StreamReader("./data.txt");
+                //StreamReader doc = new StreamReader("./data.txt");
 
-                string line;
-                line = doc.ReadLine();
-
-                while (line != null)
+                var lines = File.ReadLines("./data.txt");
+                foreach(var line in lines)
                 {
                     if (!line.Contains(dogForDelete.Trim()))
                     {
@@ -154,10 +151,8 @@ namespace WindowsFormsApp1
 
                         tempDoc.WriteLine(line);
                         tempDoc.Close();
-                    } 
-                    dogs.Add(line);
+                    }
                 }
-                doc.Close();
                 File.Delete("./data.txt");
 
                 System.IO.File.Move("tempfile.txt", "data.txt");
@@ -191,7 +186,8 @@ namespace WindowsFormsApp1
 
         private void Form1_Load(object sender, EventArgs e)
         {
-
+            readDocData();
+            resetDataBox();
         }
 
         private void label3_Click(object sender, EventArgs e)
@@ -205,6 +201,11 @@ namespace WindowsFormsApp1
         }
 
         private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label4_Click(object sender, EventArgs e)
         {
 
         }
