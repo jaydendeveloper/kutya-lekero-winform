@@ -74,7 +74,67 @@ namespace WindowsFormsApp1
             {
                 textBox.Text += dog + " ";
             }
+            dogCount.Text = "Összesen " + dogs.Count.ToString() + " kutya.";
         }
+
+        public void addJsonData()
+        {
+            string text = jsonBox.Text;
+
+            string[] datas = text.Split(' ');
+
+            StreamWriter doc = new StreamWriter("./data.txt", append: true);
+
+
+            foreach (string data in datas)
+            {
+                dogs.Add(data);
+                doc.WriteLine(data);
+
+            }
+            doc.Close();
+            jsonBox.Text = "";
+            resetDataBox();
+        }
+
+        public void removeDogs()
+        {
+            string text = textBox2.Text;
+            if(text != "")
+            {
+                string[] deleteDogs = text.Split(',');
+
+                var file = File.Create("tempfile.txt");
+                file.Close();
+
+                foreach (string dogForDelete in deleteDogs)
+                {
+                    //StreamReader doc = new StreamReader("./data.txt");
+
+                    var lines = File.ReadLines("./data.txt");
+                    foreach (var line in lines)
+                    {
+                        if (!line.Contains(dogForDelete.Trim()))
+                        {
+                            StreamWriter tempDoc = new StreamWriter("./tempfile.txt", append: true);
+
+                            tempDoc.WriteLine(line);
+                            tempDoc.Close();
+                        }
+                    }
+                    File.Delete("./data.txt");
+
+                    System.IO.File.Move("tempfile.txt", "data.txt");
+                }
+
+                textBox2.Text = "";
+            }
+
+
+            resetDataBox();
+        }
+
+
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
 
@@ -132,36 +192,7 @@ namespace WindowsFormsApp1
 
         private void button3_Click(object sender, EventArgs e)
         {
-            string text = textBox2.Text;
-            string[] deleteDogs = text.Split(',');
-
-            var file = File.Create("tempfile.txt");
-            file.Close();
-
-            foreach (string dogForDelete in deleteDogs)
-            {
-                //StreamReader doc = new StreamReader("./data.txt");
-
-                var lines = File.ReadLines("./data.txt");
-                foreach(var line in lines)
-                {
-                    if (!line.Contains(dogForDelete.Trim()))
-                    {
-                        StreamWriter tempDoc = new StreamWriter("./tempfile.txt", append: true);
-
-                        tempDoc.WriteLine(line);
-                        tempDoc.Close();
-                    }
-                }
-                File.Delete("./data.txt");
-
-                System.IO.File.Move("tempfile.txt", "data.txt");
-            }
-
-            textBox2.Text = "";
-
-
-            resetDataBox();
+            removeDogs();
         }
 
         private void textBox1_TextChanged_1(object sender, EventArgs e)
@@ -206,6 +237,16 @@ namespace WindowsFormsApp1
         }
 
         private void label4_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void jsonButton_Click(object sender, EventArgs e)
+        {
+            addJsonData();
+        }
+
+        private void label5_Click(object sender, EventArgs e)
         {
 
         }

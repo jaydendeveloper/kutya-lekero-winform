@@ -46,10 +46,15 @@
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.dogCount = new System.Windows.Forms.Label();
             this.readLabel = new System.Windows.Forms.Label();
+            this.addJson = new System.Windows.Forms.GroupBox();
+            this.jsonButton = new System.Windows.Forms.Button();
+            this.jsonBox = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
+            this.addJson.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox
@@ -60,6 +65,7 @@
             this.textBox.Multiline = true;
             this.textBox.Name = "textBox";
             this.textBox.ReadOnly = true;
+            this.textBox.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBox.Size = new System.Drawing.Size(262, 206);
             this.textBox.TabIndex = 0;
             this.textBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
@@ -79,11 +85,11 @@
             // textBox_name
             // 
             this.textBox_name.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox_name.Location = new System.Drawing.Point(14, 53);
+            this.textBox_name.Location = new System.Drawing.Point(13, 63);
             this.textBox_name.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_name.Multiline = true;
             this.textBox_name.Name = "textBox_name";
-            this.textBox_name.Size = new System.Drawing.Size(273, 30);
+            this.textBox_name.Size = new System.Drawing.Size(293, 30);
             this.textBox_name.TabIndex = 2;
             this.textBox_name.TextChanged += new System.EventHandler(this.textBox1_TextChanged_1);
             // 
@@ -93,7 +99,7 @@
             this.button2.Location = new System.Drawing.Point(14, 242);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(273, 37);
+            this.button2.Size = new System.Drawing.Size(292, 37);
             this.button2.TabIndex = 3;
             this.button2.Text = "Kutya hozzáadása";
             this.button2.UseVisualStyleBackColor = false;
@@ -166,18 +172,19 @@
             // 
             this.label5.AutoSize = true;
             this.label5.ForeColor = System.Drawing.Color.White;
-            this.label5.Location = new System.Drawing.Point(10, 27);
+            this.label5.Location = new System.Drawing.Point(10, 42);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(68, 16);
             this.label5.TabIndex = 10;
             this.label5.Text = "Kutya neve:";
+            this.label5.Click += new System.EventHandler(this.label5_Click);
             // 
             // label6
             // 
             this.label6.AutoSize = true;
             this.label6.ForeColor = System.Drawing.Color.White;
-            this.label6.Location = new System.Drawing.Point(10, 91);
+            this.label6.Location = new System.Drawing.Point(11, 98);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 16);
@@ -192,7 +199,7 @@
             this.textBox_age.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_age.Multiline = true;
             this.textBox_age.Name = "textBox_age";
-            this.textBox_age.Size = new System.Drawing.Size(273, 30);
+            this.textBox_age.Size = new System.Drawing.Size(293, 30);
             this.textBox_age.TabIndex = 11;
             this.textBox_age.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
@@ -214,7 +221,7 @@
             this.textBox_color.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.textBox_color.Multiline = true;
             this.textBox_color.Name = "textBox_color";
-            this.textBox_color.Size = new System.Drawing.Size(273, 30);
+            this.textBox_color.Size = new System.Drawing.Size(293, 30);
             this.textBox_color.TabIndex = 13;
             // 
             // label4
@@ -239,11 +246,11 @@
             this.groupBox1.Controls.Add(this.textBox_age);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(318, 34);
+            this.groupBox1.Location = new System.Drawing.Point(309, 34);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
-            this.groupBox1.Size = new System.Drawing.Size(306, 288);
+            this.groupBox1.Size = new System.Drawing.Size(315, 288);
             this.groupBox1.TabIndex = 16;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Kutya hozzáadása";
@@ -267,6 +274,7 @@
             // 
             // groupBox3
             // 
+            this.groupBox3.Controls.Add(this.dogCount);
             this.groupBox3.Controls.Add(this.textBox);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
@@ -279,16 +287,62 @@
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Kutyák lekérése";
             // 
+            // dogCount
+            // 
+            this.dogCount.AutoSize = true;
+            this.dogCount.Location = new System.Drawing.Point(14, 247);
+            this.dogCount.Name = "dogCount";
+            this.dogCount.Size = new System.Drawing.Size(0, 16);
+            this.dogCount.TabIndex = 2;
+            // 
             // readLabel
             // 
             this.readLabel.AutoSize = true;
             this.readLabel.BackColor = System.Drawing.Color.Red;
             this.readLabel.ForeColor = System.Drawing.SystemColors.Control;
-            this.readLabel.Location = new System.Drawing.Point(28, 366);
+            this.readLabel.Location = new System.Drawing.Point(11, 375);
             this.readLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.readLabel.Name = "readLabel";
             this.readLabel.Size = new System.Drawing.Size(0, 16);
             this.readLabel.TabIndex = 19;
+            // 
+            // addJson
+            // 
+            this.addJson.Controls.Add(this.jsonButton);
+            this.addJson.Controls.Add(this.jsonBox);
+            this.addJson.ForeColor = System.Drawing.SystemColors.Control;
+            this.addJson.Location = new System.Drawing.Point(632, 216);
+            this.addJson.Name = "addJson";
+            this.addJson.Size = new System.Drawing.Size(290, 188);
+            this.addJson.TabIndex = 20;
+            this.addJson.TabStop = false;
+            this.addJson.Text = "JSON adat hozzáadása";
+            // 
+            // jsonButton
+            // 
+            this.jsonButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.jsonButton.Location = new System.Drawing.Point(12, 127);
+            this.jsonButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jsonButton.Name = "jsonButton";
+            this.jsonButton.Size = new System.Drawing.Size(273, 37);
+            this.jsonButton.TabIndex = 6;
+            this.jsonButton.Text = "Kutya hozzáadása";
+            this.jsonButton.UseVisualStyleBackColor = false;
+            this.jsonButton.Click += new System.EventHandler(this.jsonButton_Click);
+            // 
+            // jsonBox
+            // 
+            this.jsonBox.AutoCompleteCustomSource.AddRange(new string[] {
+            "anyadxd",
+            "dog",
+            "xdddd"});
+            this.jsonBox.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.jsonBox.Location = new System.Drawing.Point(12, 24);
+            this.jsonBox.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
+            this.jsonBox.Multiline = true;
+            this.jsonBox.Name = "jsonBox";
+            this.jsonBox.Size = new System.Drawing.Size(270, 93);
+            this.jsonBox.TabIndex = 5;
             // 
             // Kutyaszar
             // 
@@ -296,6 +350,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.SystemColors.WindowFrame;
             this.ClientSize = new System.Drawing.Size(933, 553);
+            this.Controls.Add(this.addJson);
             this.Controls.Add(this.readLabel);
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
@@ -305,7 +360,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Kutyaszar";
-            this.Text = "Form1";
+            this.Text = "Kutya nyílvántartás";
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -313,6 +368,8 @@
             this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
+            this.addJson.ResumeLayout(false);
+            this.addJson.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -339,6 +396,10 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.Label readLabel;
+        private System.Windows.Forms.GroupBox addJson;
+        private System.Windows.Forms.Button jsonButton;
+        private System.Windows.Forms.TextBox jsonBox;
+        private System.Windows.Forms.Label dogCount;
     }
 }
 
