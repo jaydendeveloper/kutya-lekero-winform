@@ -51,7 +51,7 @@
             this.addJson = new System.Windows.Forms.GroupBox();
             this.jsonButton = new System.Windows.Forms.Button();
             this.jsonBox = new System.Windows.Forms.TextBox();
-            this.button4 = new System.Windows.Forms.Button();
+            this.button69 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
@@ -353,24 +353,24 @@
             this.jsonBox.Size = new System.Drawing.Size(270, 93);
             this.jsonBox.TabIndex = 5;
             // 
-            // button4
+            // button69
             // 
-            this.button4.BackColor = System.Drawing.Color.Transparent;
-            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
-            this.button4.FlatAppearance.BorderSize = 0;
-            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
-            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button4.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
-            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
-            this.button4.Location = new System.Drawing.Point(841, 0);
-            this.button4.Name = "button4";
-            this.button4.Padding = new System.Windows.Forms.Padding(2);
-            this.button4.Size = new System.Drawing.Size(43, 34);
-            this.button4.TabIndex = 21;
-            this.button4.Text = "X";
-            this.button4.UseVisualStyleBackColor = false;
-            this.button4.Click += new System.EventHandler(this.button4_Click);
+            this.button69.BackColor = System.Drawing.Color.Transparent;
+            this.button69.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button69.FlatAppearance.BorderSize = 0;
+            this.button69.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button69.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button69.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button69.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.button69.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button69.Location = new System.Drawing.Point(841, 0);
+            this.button69.Name = "button69";
+            this.button69.Padding = new System.Windows.Forms.Padding(2);
+            this.button69.Size = new System.Drawing.Size(43, 34);
+            this.button69.TabIndex = 21;
+            this.button69.Text = "X";
+            this.button69.UseVisualStyleBackColor = false;
+            this.button69.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -406,7 +406,7 @@
             this.button6.Padding = new System.Windows.Forms.Padding(2);
             this.button6.Size = new System.Drawing.Size(49, 34);
             this.button6.TabIndex = 23;
-            this.button6.Text = "¤";
+            this.button6.Text = "□";
             this.button6.UseVisualStyleBackColor = false;
             this.button6.Click += new System.EventHandler(this.button6_Click);
             // 
@@ -414,7 +414,7 @@
             // 
             this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
             this.panel1.Controls.Add(this.button6);
-            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button69);
             this.panel1.Controls.Add(this.button5);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
             this.panel1.Location = new System.Drawing.Point(0, 0);
@@ -484,7 +484,7 @@
         private System.Windows.Forms.Button jsonButton;
         private System.Windows.Forms.TextBox jsonBox;
         private System.Windows.Forms.Label dogCount;
-        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button69;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
         private System.Windows.Forms.Panel panel1;
