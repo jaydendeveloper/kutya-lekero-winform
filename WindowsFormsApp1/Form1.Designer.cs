@@ -51,10 +51,15 @@
             this.addJson = new System.Windows.Forms.GroupBox();
             this.jsonButton = new System.Windows.Forms.Button();
             this.jsonBox = new System.Windows.Forms.TextBox();
+            this.button4 = new System.Windows.Forms.Button();
+            this.button5 = new System.Windows.Forms.Button();
+            this.button6 = new System.Windows.Forms.Button();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.addJson.SuspendLayout();
+            this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
             // textBox
@@ -73,6 +78,7 @@
             // button1
             // 
             this.button1.BackColor = System.Drawing.SystemColors.Highlight;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button1.Location = new System.Drawing.Point(14, 268);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button1.Name = "button1";
@@ -96,6 +102,7 @@
             // button2
             // 
             this.button2.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button2.Location = new System.Drawing.Point(14, 242);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button2.Name = "button2";
@@ -108,6 +115,7 @@
             // button3
             // 
             this.button3.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.button3.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.button3.Location = new System.Drawing.Point(8, 91);
             this.button3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.button3.Name = "button3";
@@ -246,7 +254,7 @@
             this.groupBox1.Controls.Add(this.textBox_age);
             this.groupBox1.Controls.Add(this.button2);
             this.groupBox1.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox1.Location = new System.Drawing.Point(309, 34);
+            this.groupBox1.Location = new System.Drawing.Point(308, 94);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -263,7 +271,7 @@
             this.groupBox2.Controls.Add(this.label3);
             this.groupBox2.Controls.Add(this.button3);
             this.groupBox2.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox2.Location = new System.Drawing.Point(632, 34);
+            this.groupBox2.Location = new System.Drawing.Point(631, 94);
             this.groupBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -278,7 +286,7 @@
             this.groupBox3.Controls.Add(this.textBox);
             this.groupBox3.Controls.Add(this.button1);
             this.groupBox3.ForeColor = System.Drawing.SystemColors.Control;
-            this.groupBox3.Location = new System.Drawing.Point(14, 34);
+            this.groupBox3.Location = new System.Drawing.Point(13, 94);
             this.groupBox3.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.groupBox3.Name = "groupBox3";
             this.groupBox3.Padding = new System.Windows.Forms.Padding(4, 5, 4, 5);
@@ -311,7 +319,7 @@
             this.addJson.Controls.Add(this.jsonButton);
             this.addJson.Controls.Add(this.jsonBox);
             this.addJson.ForeColor = System.Drawing.SystemColors.Control;
-            this.addJson.Location = new System.Drawing.Point(632, 216);
+            this.addJson.Location = new System.Drawing.Point(631, 276);
             this.addJson.Name = "addJson";
             this.addJson.Size = new System.Drawing.Size(290, 188);
             this.addJson.TabIndex = 20;
@@ -321,6 +329,7 @@
             // jsonButton
             // 
             this.jsonButton.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.jsonButton.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.jsonButton.Location = new System.Drawing.Point(12, 127);
             this.jsonButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.jsonButton.Name = "jsonButton";
@@ -344,12 +353,84 @@
             this.jsonBox.Size = new System.Drawing.Size(270, 93);
             this.jsonBox.TabIndex = 5;
             // 
+            // button4
+            // 
+            this.button4.BackColor = System.Drawing.Color.Transparent;
+            this.button4.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button4.FlatAppearance.BorderSize = 0;
+            this.button4.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button4.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button4.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button4.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.button4.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button4.Location = new System.Drawing.Point(841, 0);
+            this.button4.Name = "button4";
+            this.button4.Padding = new System.Windows.Forms.Padding(2);
+            this.button4.Size = new System.Drawing.Size(43, 34);
+            this.button4.TabIndex = 21;
+            this.button4.Text = "X";
+            this.button4.UseVisualStyleBackColor = false;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
+            // 
+            // button5
+            // 
+            this.button5.BackColor = System.Drawing.Color.Transparent;
+            this.button5.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button5.FlatAppearance.BorderSize = 0;
+            this.button5.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button5.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button5.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button5.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.button5.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button5.Location = new System.Drawing.Point(884, 0);
+            this.button5.Name = "button5";
+            this.button5.Padding = new System.Windows.Forms.Padding(2);
+            this.button5.Size = new System.Drawing.Size(49, 34);
+            this.button5.TabIndex = 22;
+            this.button5.Text = "-";
+            this.button5.UseVisualStyleBackColor = false;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
+            // 
+            // button6
+            // 
+            this.button6.BackColor = System.Drawing.Color.Transparent;
+            this.button6.Dock = System.Windows.Forms.DockStyle.Right;
+            this.button6.FlatAppearance.BorderSize = 0;
+            this.button6.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
+            this.button6.FlatAppearance.MouseOverBackColor = System.Drawing.Color.Silver;
+            this.button6.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button6.Font = new System.Drawing.Font("Microsoft YaHei UI", 11.25F);
+            this.button6.ForeColor = System.Drawing.SystemColors.ControlLightLight;
+            this.button6.Location = new System.Drawing.Point(792, 0);
+            this.button6.Name = "button6";
+            this.button6.Padding = new System.Windows.Forms.Padding(2);
+            this.button6.Size = new System.Drawing.Size(49, 34);
+            this.button6.TabIndex = 23;
+            this.button6.Text = "¤";
+            this.button6.UseVisualStyleBackColor = false;
+            this.button6.Click += new System.EventHandler(this.button6_Click);
+            // 
+            // panel1
+            // 
+            this.panel1.BackColor = System.Drawing.SystemColors.MenuHighlight;
+            this.panel1.Controls.Add(this.button6);
+            this.panel1.Controls.Add(this.button4);
+            this.panel1.Controls.Add(this.button5);
+            this.panel1.Dock = System.Windows.Forms.DockStyle.Top;
+            this.panel1.Location = new System.Drawing.Point(0, 0);
+            this.panel1.Name = "panel1";
+            this.panel1.Size = new System.Drawing.Size(933, 34);
+            this.panel1.TabIndex = 24;
+            this.panel1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.egerle);
+            // 
             // Kutyaszar
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackColor = System.Drawing.SystemColors.WindowFrame;
+            this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.ClientSize = new System.Drawing.Size(933, 553);
+            this.Controls.Add(this.panel1);
             this.Controls.Add(this.addJson);
             this.Controls.Add(this.readLabel);
             this.Controls.Add(this.groupBox3);
@@ -357,10 +438,12 @@
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.label1);
             this.Font = new System.Drawing.Font("Microsoft YaHei", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(238)));
-            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.Name = "Kutyaszar";
+            this.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.Text = "Kutya nyílvántartás";
+            this.TransparencyKey = System.Drawing.Color.Wheat;
             this.Load += new System.EventHandler(this.Form1_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -370,6 +453,7 @@
             this.groupBox3.PerformLayout();
             this.addJson.ResumeLayout(false);
             this.addJson.PerformLayout();
+            this.panel1.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -400,6 +484,10 @@
         private System.Windows.Forms.Button jsonButton;
         private System.Windows.Forms.TextBox jsonBox;
         private System.Windows.Forms.Label dogCount;
+        private System.Windows.Forms.Button button4;
+        private System.Windows.Forms.Button button5;
+        private System.Windows.Forms.Button button6;
+        private System.Windows.Forms.Panel panel1;
     }
 }
 
